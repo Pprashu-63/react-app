@@ -32,9 +32,15 @@ phases:
     commands:
       - echo Build started on 'date'
       
-      -  npm start
+      -  npm run dev
 
     artifacts:
       files:
          - "build/*"
          - "build/**/*"
+
+    cache:
+      paths:
+        - node_modules
+
+         
