@@ -1,21 +1,20 @@
-# Use the official Node.js base image
-FROM node:14
+FROM node:alpine AS development
 
-# Set the working directory in the container
-WORKDIR /app
+# Declaring env
+ENV NODE_ENV development
 
-# Copy the package.json and package-lock.json (or yarn.lock) files
-# This allows Docker to take advantage of caching for faster builds
-COPY package.json package-lock.json ./
+# Setting up the work directory
+WORKDIR /react-app
 
-# Install project dependencies
-RUN npm install
+# Installing dependencies
+COPY ./package.json /react-app
 
-# Copy the entire React project directory into the container's working directory
+RUN npm install @material-ui/core --force
+
+
+# Copying all the files in our project
 COPY . .
 
-# Expose the port on which the React app will run (default: 3000)
-EXPOSE 3000
+# Starting our application
+CMD npm start
 
-# Start the React development server
-CMD ["npm", "run","dev"]
