@@ -1,17 +1,34 @@
-version: 0.2
+# version: 0.2
 
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 14
+#     commands:
+#       - npm install
+
+#   build:
+#     commands:
+#       - npm run dev
+
+# artifacts:
+#   files:
+#     - '**/*'
+#   base-directory: 'build'
+
+
+version: 0.2
 phases:
   install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
     runtime-versions:
-      nodejs: 14
+      nodejs: 18
+  pre_build:
     commands:
+      - echo Installing source NPM dependencies...
       - npm install
-
   build:
     commands:
-      - npm run dev
-
-artifacts:
-  files:
-    - '**/*'
-  base-directory: 'build'
+      - echo Build started on 'date'
+      - npm run build
