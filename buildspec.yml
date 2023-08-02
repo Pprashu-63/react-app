@@ -27,8 +27,9 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
-      - npm install
+      - npm install @material-ui/core --force
   build:
     commands:
       - echo Build started on 'date'
-      - npm run build
+      
+      - npm npm start
