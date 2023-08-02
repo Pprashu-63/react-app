@@ -31,7 +31,6 @@ phases:
   build:
     commands:
       - echo Build started on 'date'
-      
       - npm prune --production
 
     artifacts:
