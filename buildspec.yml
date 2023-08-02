@@ -32,7 +32,7 @@ phases:
     commands:
       - echo Build started on 'date'
       
-      -  npm run dev
+      - npm prune --production
 
     artifacts:
       files:
